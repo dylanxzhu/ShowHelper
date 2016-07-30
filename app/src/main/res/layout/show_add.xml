@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/show_name_edt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="测试" />
+
+    <EditText
+        android:id="@+id/latest_season_edt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="1" />
+
+    <EditText
+        android:id="@+id/total_episodes_edt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="10" />
+
+    <EditText
+        android:id="@+id/updated_episode_edt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="1" />
+
+    <EditText
+        android:id="@+id/updated_week_edt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="星期一" />
+
+    <EditText
+        android:id="@+id/updated_time_edt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="2016-07-30 12:00" />
+
+    <EditText
+        android:id="@+id/next_time_edt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="2016-08-06 12:00" />
+
+    <EditText
+        android:id="@+id/show_type_edt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="美剧" />
+
+    <EditText
+        android:id="@+id/show_status_edt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="连载" />
+
+    <Button
+        android:id="@+id/add_show_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="添加" />
+
+</LinearLayout>

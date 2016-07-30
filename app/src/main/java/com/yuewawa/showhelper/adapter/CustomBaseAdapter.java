@@ -9,6 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -34,7 +35,7 @@ public abstract class CustomBaseAdapter<T> extends BaseAdapter{
     }
 
     @Override
-    public Object getItem(int position) {
+    public T getItem(int position) {
         return list.get(position);
     }
 
@@ -44,11 +45,52 @@ public abstract class CustomBaseAdapter<T> extends BaseAdapter{
     }
 
     @Override
-    public View getView(int position, View view, ViewGroup viewGroup) {
-        return null;
+    public View getView(int position, View convertView, ViewGroup parent) {
+        ViewHolder holder = ViewHolder.bind(parent.getContext(), convertView, parent, mLayoutRes, position);
+        bindView(holder, getItem(position));
+        return holder.getItemView();
     }
 
-    public abstract void bindView();
+    public abstract void bindView(ViewHolder holder, T obj);
+
+    //添加一条数据
+    public void add(T t) {
+        if (list == null) {
+            list = new ArrayList<>();
+        }
+        list.add(t);
+        notifyDataSetChanged();
+    }
+
+    //在指定位置添加一条数据
+    public void add(int position,T t) {
+        if (list == null) {
+            list = new ArrayList<>();
+        }
+        list.add(position, t);
+        notifyDataSetChanged();
+    }
+
+    public void remove(T t) {
+        if (list != null) {
+            list.remove(t);
+        }
+        notifyDataSetChanged();
+    }
+
+    public void remove(int position) {
+        if (list != null) {
+            list.remove(position);
+        }
+        notifyDataSetChanged();
+    }
+
+    public void clear() {
+        if (list != null) {
+            list.clear();
+        }
+        notifyDataSetChanged();
+    }
 
     public static class ViewHolder {
         private Context context;

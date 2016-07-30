@@ -1,35 +1,38 @@
 package com.yuewawa.showhelper.entity;
 
+import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
+
+import java.io.Serializable;
 
 /**
  * Created by yuewawa on 2016-07-29.
  */
 @DatabaseTable(tableName = "t_show")
-public class Show {
+public class Show implements Serializable{
 
     @DatabaseField(generatedId = true)
     private int id;
-    @DatabaseField(canBeNull = false)
+    @DatabaseField(canBeNull = true)
     private String showName;
-    @DatabaseField(canBeNull = false)
+    @DatabaseField(canBeNull = true)
     private int latestSeason;
-    @DatabaseField(canBeNull = false)
+    @DatabaseField(canBeNull = true)
     private String totalEpisodes;
-    @DatabaseField(canBeNull = false)
+    @DatabaseField(canBeNull = true)
     private String updatedEpisode;
-    @DatabaseField(canBeNull = false)
+    @DatabaseField(canBeNull = true)
     private String updatedWeek;
-    @DatabaseField(canBeNull = false)
+    @DatabaseField(canBeNull = true)
     private String updatedTime;
     @DatabaseField(canBeNull = true)
     private String nextTime;
-    @DatabaseField(canBeNull = false)
+    @DatabaseField(canBeNull = true)
     private String showType;
-    @DatabaseField(canBeNull = false)
+    @DatabaseField(canBeNull = true)
     private String showStatus;
-    @DatabaseField(canBeNull = false)
+    @DatabaseField(canBeNull = true, dataType = DataType.BYTE_ARRAY)
     private byte[] showImage;
 
     public Show() {

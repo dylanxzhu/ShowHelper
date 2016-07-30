@@ -12,7 +12,7 @@ import com.yuewawa.showhelper.constant.CustomConstant;
 /**
  * Created by yuewawa on 2016-07-29.
  */
-public class MineFragment extends BaseFragment{
+public class MineFragment extends BaseFragment {
 
     private View view;
 
@@ -26,5 +26,10 @@ public class MineFragment extends BaseFragment{
     public void onResume() {
         super.onResume();
         MainActivity.currentTag = CustomConstant.MINE_FRAGMENT;
+    }
+
+    @Override
+    public void onClick(View view) {
+
     }
 }

@@ -28,4 +28,9 @@ public class HomeFragment extends BaseFragment{
         super.onResume();
         MainActivity.currentTag = CustomConstant.HOME_FRAGMENT;
     }
+
+    @Override
+    public void onClick(View view) {
+
+    }
 }
