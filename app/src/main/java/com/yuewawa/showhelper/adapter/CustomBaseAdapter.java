@@ -92,6 +92,12 @@ public abstract class CustomBaseAdapter<T> extends BaseAdapter{
         notifyDataSetChanged();
     }
 
+    public void refresh() {
+        if (list != null) {
+             notifyDataSetChanged();
+        }
+    }
+
     public static class ViewHolder {
         private Context context;
         private View item;

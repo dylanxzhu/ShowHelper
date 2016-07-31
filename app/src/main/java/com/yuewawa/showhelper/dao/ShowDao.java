@@ -29,4 +29,28 @@ public class ShowDao {
     public List<Show> getAll() throws SQLException {
         return dao.queryForAll();
     }
+
+    /**
+     * 通过星期查询
+     *
+     * @param updatedWeek 更新的星期
+     * @return
+     */
+    public List<Show> getAllByWeek(String updatedWeek) throws SQLException {
+        return dao.queryBuilder().where().eq("updatedWeek", updatedWeek).query();
+    }
+
+    /**
+     * 通过id查询数据
+     *
+     * @param id
+     * @return
+     */
+    public Show getOneById(int id) throws SQLException {
+        return dao.queryForId(id);
+    }
+
+    public int update(Show show) throws SQLException {
+        return dao.update(show);
+    }
 }

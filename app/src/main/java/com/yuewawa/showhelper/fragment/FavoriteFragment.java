@@ -10,10 +10,12 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.yuewawa.showhelper.R;
 import com.yuewawa.showhelper.activity.MainActivity;
 import com.yuewawa.showhelper.activity.ShowAddActivity;
+import com.yuewawa.showhelper.activity.ShowDetailActivity;
 import com.yuewawa.showhelper.adapter.CustomBaseAdapter;
 import com.yuewawa.showhelper.constant.CustomConstant;
 import com.yuewawa.showhelper.dao.ShowDao;
@@ -31,6 +33,8 @@ public class FavoriteFragment extends BaseFragment implements AdapterView.OnItem
 
     private Context context;
     private View view;
+    private Intent intent;
+
     private ListView favoriteListView;
     private List<Show> shows;
     private CustomBaseAdapter<Show> showListAdapter;
@@ -56,8 +60,6 @@ public class FavoriteFragment extends BaseFragment implements AdapterView.OnItem
         Log.e(TAG, "onResume()");
 
         MainActivity.currentTag = CustomConstant.FAVORITE_FRAGMENT;
-
-
     }
 
     private void setListViewData() {
@@ -82,6 +84,8 @@ public class FavoriteFragment extends BaseFragment implements AdapterView.OnItem
 
     private void initViews() {
         favoriteListView = (ListView) view.findViewById(R.id.favorite_list_view);
+        favoriteListView.setOnItemClickListener(this);
+
         addShowBtn = (Button) view.findViewById(R.id.add_show_btn);
         addShowBtn.setOnClickListener(this);
     }
@@ -90,16 +94,18 @@ public class FavoriteFragment extends BaseFragment implements AdapterView.OnItem
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.add_show_btn:
-                Intent intent = new Intent(context, ShowAddActivity.class);
-//                startActivity(intent);
+                intent = new Intent(context, ShowAddActivity.class);
                 startActivityForResult(intent, 0x001);
                 break;
         }
     }
 
     @Override
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
+    public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+        Toast.makeText(context, "You click item"+(position+1)+", id="+id, Toast.LENGTH_SHORT).show();
+        intent = new Intent(context, ShowDetailActivity.class);
+        intent.putExtra("id", position+1);
+        startActivity(intent);
     }
 
     @Override
@@ -107,7 +113,9 @@ public class FavoriteFragment extends BaseFragment implements AdapterView.OnItem
         switch (requestCode) {
             case 0x001:
                 Show show = (Show) data.getExtras().getSerializable("show");
-                showListAdapter.add(shows.size(), show);
+                if (show != null) {
+                    showListAdapter.add(shows.size(), show);
+                }
                 break;
         }
     }

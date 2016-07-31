@@ -88,11 +88,21 @@ public class ShowAddActivity extends BaseActivity{
             Bundle bundle = new Bundle();
             bundle.putSerializable("show", show);
             intent.putExtras(bundle);
-            setResult(RESULT_OK, intent);
+            setResult(0x101, intent);
             this.finish();
         } catch (SQLException e) {
             e.printStackTrace();
             Toast.makeText(this, "添加失败", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent();
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("show", null);
+        intent.putExtras(bundle);
+        setResult(0x102, intent);
+        this.finish();
     }
 }
