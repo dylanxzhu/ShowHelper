@@ -15,7 +15,7 @@ import com.yuewawa.showhelper.constant.CustomConstant;
 /**
  * Created by yuewawa on 2016-07-29.
  */
-public class BaseFragment extends Fragment implements View.OnClickListener{
+public class BaseFragment extends Fragment {
 
     private static final String TAG = "BaseFragment";
 
@@ -69,7 +69,7 @@ public class BaseFragment extends Fragment implements View.OnClickListener{
         } else if (TextUtils.equals(tag, CustomConstant.FAVORITE_FRAGMENT)) {
             baseFragment = new FavoriteFragment();
         } else if (TextUtils.equals(tag, CustomConstant.MINE_FRAGMENT)) {
-            baseFragment = new MineFragment();
+            baseFragment = new MineFragment_();
         }
         return baseFragment;
     }
@@ -162,11 +162,6 @@ public class BaseFragment extends Fragment implements View.OnClickListener{
      * */
     public void setDefaultFragment(int fragmentLayout, String tag, String currentTag, FragmentManager fm){
         changeFragment(fragmentLayout, tag, currentTag, fm);
-    }
-
-    @Override
-    public void onClick(View view) {
-
     }
 }
 

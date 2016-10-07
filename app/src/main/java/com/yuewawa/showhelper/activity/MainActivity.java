@@ -1,8 +1,8 @@
 package com.yuewawa.showhelper.activity;
 
+import android.app.Activity;
 import android.app.FragmentManager;
 import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,7 +13,12 @@ import com.yuewawa.showhelper.R;
 import com.yuewawa.showhelper.constant.CustomConstant;
 import com.yuewawa.showhelper.fragment.BaseFragment;
 
-public class MainActivity extends BaseActivity {
+import org.androidannotations.annotations.Click;
+import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.ViewById;
+
+@EActivity(R.layout.main)
+public class MainActivity extends Activity {
 
     private static final String TAG = "MainActivity";
 
@@ -22,15 +27,28 @@ public class MainActivity extends BaseActivity {
     private FragmentManager fm;
     private BaseFragment baseFragment;
 
-    private TextView homeTabTxt, favoriteTabTxt, mineTabTxt;
-    private RelativeLayout homeTabRel, favoriteTabRel, mineTabRel;
+    @ViewById(R.id.home_tab_txt)
+    protected TextView homeTabTxt;
+    @ViewById(R.id.favorite_tab_txt)
+    protected TextView favoriteTabTxt;
+    @ViewById(R.id.mine_tab_txt)
+    protected TextView mineTabTxt;
+
+    @ViewById(R.id.home_tab_rel)
+    protected RelativeLayout homeTabRel;
+    @ViewById(R.id.favorite_tab_rel)
+    protected RelativeLayout favoriteTabRel;
+    @ViewById(R.id.mine_tab_rel)
+    protected RelativeLayout mineTabRel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+    }
 
-        initViews();
+    @Override
+    protected void onResume() {
+        super.onResume();
         setDefaultFragment();
     }
 
@@ -61,26 +79,8 @@ public class MainActivity extends BaseActivity {
         mineTabRel.setSelected(false);
     }
 
-    @Override
-    protected void initViews() {
-        Log.e(TAG, "initViews()");
-
-        homeTabTxt = (TextView) findViewById(R.id.home_tab_txt);
-        favoriteTabTxt = (TextView) findViewById(R.id.favorite_tab_txt);
-        mineTabTxt = (TextView) findViewById(R.id.mine_tab_txt);
-
-        homeTabTxt.setOnClickListener(this);
-        favoriteTabTxt.setOnClickListener(this);
-        mineTabTxt.setOnClickListener(this);
-
-        homeTabRel = (RelativeLayout) findViewById(R.id.home_tab_rel);
-        favoriteTabRel = (RelativeLayout) findViewById(R.id.favorite_tab_rel);
-        mineTabRel = (RelativeLayout) findViewById(R.id.mine_tab_rel);
-    }
-
-
-    @Override
-    public void onClick(View view) {
+    @Click({R.id.home_tab_txt, R.id.favorite_tab_txt, R.id.mine_tab_txt})
+    protected void changeTabs(View view) {
         resetTabColor();
         switch (view.getId()) {
             case R.id.home_tab_txt:

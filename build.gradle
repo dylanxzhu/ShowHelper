@@ -3,18 +3,27 @@
 buildscript {
     repositories {
         jcenter()
+        //add repository for android annotations---by yuewawwa 2016-10-07
+        mavenCentral()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.1.2'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+
+        //green dao classpath---by yuewawwa 2016-10-07
+        classpath 'org.greenrobot:greendao-gradle-plugin:3.1.1'
+        //android annotations classpath---by yuewawwa 2016-10-07
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
     }
 }
 
 allprojects {
     repositories {
         jcenter()
+        //add repository for android annotations---by yuewawwa 2016-10-07
+        mavenCentral()
     }
 }
 

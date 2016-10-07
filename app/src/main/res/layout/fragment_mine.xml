@@ -4,10 +4,34 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="Mine"
-        android:textSize="30sp" />
+        android:layout_height="wrap_content"
+        style="@style/ParentLayoutStyle">
+
+        <TextView
+            style="@style/TextBaseStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="个人信息" />
+    </RelativeLayout>
+
+    <View
+        style="@style/HorizontalLineTheme"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/ParentLayoutStyle">
+
+        <TextView android:id="@+id/showManage_txt"
+            style="@style/TextBaseStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="剧集管理" />
+    </RelativeLayout>
+
+    <View
+        style="@style/HorizontalLineTheme"/>
 </LinearLayout>

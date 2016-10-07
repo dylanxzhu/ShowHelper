@@ -29,8 +29,4 @@ public class HomeFragment extends BaseFragment{
         MainActivity.currentTag = CustomConstant.HOME_FRAGMENT;
     }
 
-    @Override
-    public void onClick(View view) {
-
-    }
 }

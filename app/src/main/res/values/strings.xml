@@ -1,3 +1,35 @@
 <resources>
     <string name="app_name">ShowHelper</string>
+
+    <string-array name="updated_week">
+        <item>星期日</item>
+        <item>星期一</item>
+        <item>星期二</item>
+        <item>星期三</item>
+        <item>星期四</item>
+        <item>星期五</item>
+        <item>星期六</item>
+    </string-array>
+    <string-array name="show_region">
+        <item>大陆</item>
+        <item>香港</item>
+        <item>台湾</item>
+        <item>美国</item>
+        <item>英国</item>
+        <item>日本</item>
+        <item>韩国</item>
+    </string-array>
+    <string-array name="show_type">
+        <item>电视剧</item>
+        <item>动画</item>
+        <item>漫画</item>
+        <item>综艺</item>
+        <item>网络剧</item>
+    </string-array>
+    <string-array name="show_status">
+        <item>连载</item>
+        <item>停更</item>
+        <item>本季完结</item>
+        <item>本剧完结</item>
+    </string-array>
 </resources>
